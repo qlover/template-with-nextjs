@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import useRenderValue from '@/hooks/renderValue/useRenderValue';
 import useTranslationRouter from '@/hooks/useTranslationRouter';
-import { isPlainObject } from 'lodash';
-import { createContainer } from 'unstated-next';
-export type PageContainerProps = {
+
+type PageContainerProps = {
   /**
    * translate ns 国际化命名空间，默认当前页面路由转换的空间
    */
@@ -19,16 +19,14 @@ export type PageContainerProps = {
   withRV?: boolean;
 };
 
-export function isPageContainerProps(val: any): val is PageContainerProps {
-  return isPlainObject(val);
-}
-
-function useContainer(initProps?: PageContainerProps) {
-  const { i18Ns, rvNS, withRV } = initProps || {};
-
+export default function useContainer<RV>({
+  i18Ns,
+  rvNS,
+  withRV,
+}: PageContainerProps = {}) {
   const pageTrans = useTranslationRouter(i18Ns);
 
-  const { renderValue } = useRenderValue({
+  const { renderValue } = useRenderValue<RV>({
     rvNS: rvNS ? rvNS : withRV ? ['_rvdata', pageTrans.i18Ns] : pageTrans.i18Ns,
   });
 
@@ -37,12 +35,3 @@ function useContainer(initProps?: PageContainerProps) {
     renderValue,
   };
 }
-
-/**
- *
- * pageRoot 容器
- *
- */
-const PageRootContainer = createContainer(useContainer);
-
-export default PageRootContainer;

@@ -5,7 +5,7 @@ import PageHeader, { PageHeaderProps } from '@/components/pages/PageHeader';
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
 import css from './index.module.less';
-import useBaseLayoutProps from './useBaseLayoutProps';
+import useProps from './useProps';
 
 export type BaseLayoutProps = {
   /**
@@ -46,9 +46,12 @@ export type BasicLayoutRenderProps = PropsWithChildren<BaseLayoutProps>;
  * @param param0
  * @returns
  */
-function BasicLayout({ children, ...props }: BasicLayoutRenderProps) {
+export default function PageRootLayout({
+  children,
+  ...props
+}: BasicLayoutRenderProps) {
   const { footerProps, mainClassName, headerProps, seoProps, className } =
-    useBaseLayoutProps(props);
+    useProps(props);
 
   return (
     <div className={classNames(css['BasicLayout-wrapper'], className)}>
@@ -62,5 +65,3 @@ function BasicLayout({ children, ...props }: BasicLayoutRenderProps) {
     </div>
   );
 }
-
-export default BasicLayout;

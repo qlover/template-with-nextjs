@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import useTranslationRouter from '@/hooks/useTranslationRouter';
 import { BaseLayoutProps } from '.';
+import PageRootContainer from '../container';
 
-export default function useBasicLayoutProps(props: BaseLayoutProps) {
-  const { t, i18Ns } = useTranslationRouter(props.defaultNS);
+export default function useProps(props: BaseLayoutProps) {
+  const { t } = PageRootContainer.useContainer();
 
   const seoProps = {
     title: t('seo_title', null, { default: '' }),
