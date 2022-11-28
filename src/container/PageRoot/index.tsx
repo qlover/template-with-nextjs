@@ -1,7 +1,12 @@
-import RenderDispatch from '@/utils/next-utils/RenderDispatch';
-import Component from './Component';
+import { default as PageRootComponent } from './Component';
 import PageRootContainer from './container';
-import PageRootLayout from './PageRootLayout';
+
+export { default as PageRootContainer } from './container';
+export { default as PageRootLayout } from './PageRootLayout';
+
+export const usePageContainer = PageRootContainer.useContainer;
+
+export default PageRootComponent;
 
 /**
  * 挂载以下几个页面通用方法
@@ -13,26 +18,3 @@ import PageRootLayout from './PageRootLayout';
  * 3. Layout pageRoot 基础布局组件, 挂载 `laytous/BaseLayout`
  *
  */
-const PageRoot = {
-  /**
-   * 渲染组件
-   */
-  Component: Component,
-
-  /**
-   * 容器
-   */
-  Container: PageRootContainer,
-
-  /**
-   * next page 渲染分发器，统一渲染 server 端
-   */
-  Renderer: RenderDispatch,
-
-  /**
-   * 渲染组件的布局组件
-   */
-  Layout: PageRootLayout,
-};
-
-export default PageRoot;

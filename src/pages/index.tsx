@@ -1,13 +1,17 @@
-import PageRoot from '@/container/PageRoot';
+import PageRootComponent, {
+  PageRootLayout,
+  usePageContainer,
+} from '@/container/PageRoot';
+import RenderDispatch from '@/container/PageRoot/RenderDispatch';
 import { WindowIcon } from '@heroicons/react/24/outline';
 
-const IndexPage = PageRoot.Component<{ ssgTitle: string }>(({ ssgTitle }) => {
-  const { t, renderValue } = PageRoot.Container.useContainer();
+const IndexPage = PageRootComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
+  const { t, renderValue } = usePageContainer();
   const { section1, section2 } = renderValue;
   console.log(section1, section2);
 
   return (
-    <PageRoot.Layout>
+    <PageRootLayout>
       <section className="w-80 min-h-[40rem]">
         <div>{ssgTitle}</div>
         <h1 className="text-2xl">
@@ -16,11 +20,11 @@ const IndexPage = PageRoot.Component<{ ssgTitle: string }>(({ ssgTitle }) => {
         </h1>
         <h2>{t('banner_subtitle')}</h2>
       </section>
-    </PageRoot.Layout>
+    </PageRootLayout>
   );
 });
 
-export const getStaticProps = PageRoot.Renderer.ssg({
+export const getStaticProps = RenderDispatch.ssg({
   async handler() {
     return {
       ssgTitle: 'ssgTitle',

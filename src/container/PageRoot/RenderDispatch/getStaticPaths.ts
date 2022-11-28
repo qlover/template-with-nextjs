@@ -2,7 +2,7 @@ import { has } from 'lodash';
 import { GetStaticPathsContext, GetStaticPathsResult } from 'next/types';
 import { ParsedUrlQuery } from 'querystring';
 import { BaseConfigType, ErrorHandler } from '.';
-import { prepareForSerializatoin } from '../prepareForSerializatoin';
+import { prepareForSerializatoin } from '../../../utils/next-utils/prepareForSerializatoin';
 
 type HandlerType<Props extends ParsedUrlQuery = ParsedUrlQuery> = (
   context: GetStaticPathsContext

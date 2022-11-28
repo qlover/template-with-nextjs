@@ -8,8 +8,8 @@ import RenderDispatch, {
   ErrorHandler,
   plugRouterFilter,
 } from '.';
-import { prepareForSerializatoin } from '../prepareForSerializatoin';
-import { parseQSForString } from '../wrapperContext';
+import { prepareForSerializatoin } from '../../../utils/next-utils/prepareForSerializatoin';
+import { parseQSForString } from '../../../utils/next-utils/wrapperContext';
 
 type HandlerType<Props> = (
   context: GetServerSidePropsContext

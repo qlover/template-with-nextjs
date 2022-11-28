@@ -5,8 +5,11 @@ import {
   GetStaticPropsResult,
 } from 'next/types';
 import RenderDispatch, { BaseConfigType } from '.';
-import { RedirectError, ServerError } from '../AppServerError';
-import { prepareForSerializatoin } from '../prepareForSerializatoin';
+import {
+  RedirectError,
+  ServerError,
+} from '../../../utils/next-utils/AppServerError';
+import { prepareForSerializatoin } from '../../../utils/next-utils/prepareForSerializatoin';
 
 type StaticConfigType<P> = BaseConfigType<HandlerType<P>> & {
   /**
