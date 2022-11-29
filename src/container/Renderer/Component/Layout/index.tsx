@@ -44,7 +44,7 @@ export type LayoutProps = {
  * @param param0
  * @returns
  */
-export default function PageRootLayout(props: PropsWithChildren<LayoutProps>) {
+export default function RendererLayout(props: PropsWithChildren<LayoutProps>) {
   const { footerProps, mainClassName, headerProps, seoProps, className } =
     useProps(props);
 

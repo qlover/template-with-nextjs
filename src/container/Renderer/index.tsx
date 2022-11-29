@@ -1,18 +1,46 @@
 import RendererContainer from './container';
 
 export { default as RendererComponent } from './Component';
-export { default as PageRootLayout } from './Component/Layout';
+export { default as RendererLayout } from './Component/Layout';
 export { default as RendererContainer } from './container';
+// export { default as RendererServer } from './ServerRenderer';
 
 export const usePageContainer = RendererContainer.useContainer;
 
 /**
- * 挂载以下几个页面通用方法
+ * 页面渲染统一容器,用于统一处理以下几类页面:
  *
- * 1. PageRoot Component, 包裹组件(hoc)
+ * 1. 统一的基础布局的页面,比如统一带 pageHeader,pageFooter 页面组件
  *
- * 2. Renderer, next page 的 ssg/ssr 方式渲染, 挂载 `RenderDispatch`
+ * 2. 需要使用 ssr/ssg 等服务端渲染, ServerRenderer 提供统一的 nextjs, `getServerSideProps` 和 `getStaticProps` 处理
  *
- * 3. Layout pageRoot 基础布局组件, 挂载 `laytous/BaseLayout`
  *
+ * 使用方式分两个大类
+ *
+ * 1. 客户端类, 就是页面组件
+ * 2. 服务端类, 就是 `getServerSideProps` 和 `getStaticProps` 等
+ *
+ *
+ * 完整的页面
+ * ```
+ * import {
+ *   RendererComponent,
+ *   RendererLayout,
+ *   usePageContainer,
+ * } from '@/container/Renderer';
+ * import RendererServer from '@/container/Renderer/RendererServer';
+ *
+ * export default RendererComponent<>(() => {
+ *  return (
+ *    <RendererLayout>
+ *      <div>111</div>
+ *    </RendererLayout>
+ *  )
+ * })
+ *
+ *
+ * export const getStaticProps = RenderDispatch.ssg()
+ *
+ * // 因为客户端和服务端是分离,导入方式也分离,避免造成混淆
+ * ```
  */

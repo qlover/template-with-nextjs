@@ -1,9 +1,9 @@
 import {
-  PageRootLayout,
   RendererComponent,
+  RendererLayout,
   usePageContainer,
 } from '@/container/Renderer';
-import RenderDispatch from '@/container/Renderer/ServerRenderer';
+import RendererServer from '@/container/Renderer/RendererServer';
 import { WindowIcon } from '@heroicons/react/24/outline';
 
 const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
@@ -12,7 +12,7 @@ const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
   console.log(section1, section2);
 
   return (
-    <PageRootLayout>
+    <RendererLayout>
       <section className="w-80 min-h-[40rem]">
         <div>{ssgTitle}</div>
         <h1 className="text-2xl">
@@ -21,11 +21,11 @@ const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
         </h1>
         <h2>{t('banner_subtitle')}</h2>
       </section>
-    </PageRootLayout>
+    </RendererLayout>
   );
 });
 
-export const getStaticProps = RenderDispatch.ssg({
+export const getStaticProps = RendererServer.ssg({
   async handler() {
     return {
       ssgTitle: 'ssgTitle',
