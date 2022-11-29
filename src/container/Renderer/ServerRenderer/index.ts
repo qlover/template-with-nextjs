@@ -2,13 +2,13 @@
 import appConfig from '@/config/appConfig';
 import { serverLog } from '@/utils/logger';
 import { IncomingMessage } from 'http';
-import AppServerError, {
-  RedirectError,
-  ServerError,
-} from '../../../utils/next-utils/AppServerError';
 import getServerSideProps from './getServerSideProps';
 import getStaticPaths from './getStaticPaths';
 import getStaticProps from './getStaticProps';
+import AppServerError, {
+  RedirectError,
+  ServerError,
+} from './ServerRendererError';
 
 export type BaseConfigType<H> = {
   /**

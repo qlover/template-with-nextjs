@@ -7,7 +7,7 @@ import { PropsWithChildren } from 'react';
 import css from './index.module.less';
 import useProps from './useProps';
 
-export type BaseLayoutProps = {
+export type LayoutProps = {
   /**
    * seo 属性, `Seo` 组件属性
    */
@@ -35,8 +35,6 @@ export type BaseLayoutProps = {
   defaultNS?: LocalApp.Locales;
 };
 
-export type BasicLayoutRenderProps = PropsWithChildren<BaseLayoutProps>;
-
 /**
  * 基础布局组件
  *
@@ -46,10 +44,7 @@ export type BasicLayoutRenderProps = PropsWithChildren<BaseLayoutProps>;
  * @param param0
  * @returns
  */
-export default function PageRootLayout({
-  children,
-  ...props
-}: BasicLayoutRenderProps) {
+export default function PageRootLayout(props: PropsWithChildren<LayoutProps>) {
   const { footerProps, mainClassName, headerProps, seoProps, className } =
     useProps(props);
 
@@ -59,7 +54,7 @@ export default function PageRootLayout({
 
       {headerProps === false ? null : <PageHeader {...headerProps} />}
 
-      <main className={mainClassName}>{children}</main>
+      <main className={mainClassName}>{props.children}</main>
 
       {footerProps === false ? null : <PageFooter {...footerProps} />}
     </div>

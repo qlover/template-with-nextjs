@@ -1,4 +1,4 @@
-import { GetStaticPropsResult, Redirect } from 'next';
+import { Redirect } from 'next';
 
 type ErrorConfig = {
   code: 404 | 500 | 302;
@@ -15,13 +15,15 @@ const CodeMap: any = {
   },
 };
 
-export default class AppServerError extends Error {
+export default class ServerRendererError extends Error {
   _app_config: ErrorConfig = {
     code: 500,
   };
   constructor(config: ErrorConfig) {
     super(
-      config.message ? 'AppServerError:' + config.message : 'AppServerError'
+      config.message
+        ? 'ServerRendererError:' + config.message
+        : 'ServerRendererError'
     );
 
     this._app_config = config;
@@ -30,7 +32,7 @@ export default class AppServerError extends Error {
   /**
    * getServerSideProps 和 getStaticProps 都包含 redirect 或 notFound
    *
-   * AppServerError 所以默认支持 ssr 返回结果, 后期改变可重写
+   * ServerRendererError 所以默认支持 ssr 返回结果, 后期改变可重写
    *
    * @see GetStaticPropsResult
    */
@@ -41,18 +43,18 @@ export default class AppServerError extends Error {
   }
 }
 
-export class NotFoundError extends AppServerError {
+export class NotFoundError extends ServerRendererError {
   constructor() {
     super({ code: 404, message: 'Page Not Found' });
   }
 }
-export class ServerError extends AppServerError {
+export class ServerError extends ServerRendererError {
   constructor(message?: any) {
     super({ code: 500, message });
   }
 }
 
-export class RedirectError extends AppServerError {
+export class RedirectError extends ServerRendererError {
   _app_redirect;
   constructor(
     redircet?:

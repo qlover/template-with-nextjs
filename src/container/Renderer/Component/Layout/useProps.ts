@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { BaseLayoutProps } from '.';
-import PageRootContainer from '../container';
+import { LayoutProps } from '.';
+import PageRootContainer from '../../container';
 
-export default function useProps(props: BaseLayoutProps) {
+export default function useProps(props: LayoutProps) {
   const { t } = PageRootContainer.useContainer();
 
   const seoProps = {
@@ -18,5 +18,5 @@ export default function useProps(props: BaseLayoutProps) {
       ...props.seoProps,
     },
   };
-  return BasicProps as BaseLayoutProps;
+  return BasicProps as LayoutProps;
 }

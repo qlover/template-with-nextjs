@@ -1,11 +1,12 @@
-import PageRootComponent, {
+import {
   PageRootLayout,
+  RendererComponent,
   usePageContainer,
-} from '@/container/PageRoot';
-import RenderDispatch from '@/container/PageRoot/RenderDispatch';
+} from '@/container/Renderer';
+import RenderDispatch from '@/container/Renderer/ServerRenderer';
 import { WindowIcon } from '@heroicons/react/24/outline';
 
-const IndexPage = PageRootComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
+const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
   const { t, renderValue } = usePageContainer();
   const { section1, section2 } = renderValue;
   console.log(section1, section2);
