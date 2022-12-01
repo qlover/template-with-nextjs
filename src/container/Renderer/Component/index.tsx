@@ -9,7 +9,9 @@ export type BaesRendererProps = LocalApp.PageProps;
 
 export type RendererComponentProps<P> = P & BaesRendererProps;
 
-export type RendererComponent<P = {}> = NextPage<RendererComponentProps<P>> & {
+export type RendererComponentType<P = {}> = NextPage<
+  RendererComponentProps<P>
+> & {
   /**
    * 可用来获取 container 初始属性,也可以通过 Component 第一个参数设置
    */
@@ -17,8 +19,8 @@ export type RendererComponent<P = {}> = NextPage<RendererComponentProps<P>> & {
 };
 
 function copyNextPageAttr<P>(
-  targetCom: RendererComponent<P>,
-  sourceCom: RendererComponent<P>
+  targetCom: RendererComponentType<P>,
+  sourceCom: RendererComponentType<P>
 ) {
   targetCom.propTypes = sourceCom.propTypes;
   targetCom.contextTypes = sourceCom.contextTypes;
@@ -44,11 +46,11 @@ function copyNextPageAttr<P>(
  * @returns
  */
 export default function Component<P extends PlainObject>(
-  props: PageContainerProps | RendererComponent<P>,
-  Component?: RendererComponent<P>
+  props: PageContainerProps | RendererComponentType<P>,
+  Component?: RendererComponentType<P>
 ) {
   let initContainerProps = {};
-  let RenderComm: RendererComponent<P>;
+  let RenderComm: RendererComponentType<P>;
 
   if (isPageContainerProps(props)) {
     initContainerProps = props;
@@ -66,7 +68,7 @@ export default function Component<P extends PlainObject>(
     initContainerProps = RenderComm.getPageContainerProps();
   }
 
-  const Page: RendererComponent<P> = (props) => {
+  const Page: RendererComponentType<P> = (props) => {
     return (
       <PageRootContainer.Provider initialState={initContainerProps}>
         <ConfigProvider>
