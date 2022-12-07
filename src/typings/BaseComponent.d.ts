@@ -48,6 +48,13 @@ declare namespace BaseComponent {
    */
   type WithFuncNode<P = any> = React.ReactElement | FuncRenderNode<P>;
 
+  type OverlayUI = {
+    getContainer?:
+      | ((ele: HTMLElement) => HTMLElement | null)
+      | HTMLElement
+      | null;
+  };
+
   /**
    * 包含通用 `options` 选项值的属性
    */
@@ -65,12 +72,14 @@ declare namespace BaseComponent {
     onChange?: (value: V) => void;
   };
 
-  type MapRenderComponent<T> = (props: {
+  type MapRenderProps<T> = {
     item: T;
     index: number;
     key: string;
     defaultNode?: React.ReactNode;
-  }) => React.ReactNode;
+  };
+
+  type MapRenderComponent<T> = (props: MapRenderProps<T>) => React.ReactNode;
 
   /**
    * 本地数据因为从 i18n.json 过来，next 会将数据从 __namespace 带过来
@@ -79,6 +88,3 @@ declare namespace BaseComponent {
     __namespaces?: any;
   };
 }
-
-// export = BaseComponent;
-// export as namespace BaseComponent;
