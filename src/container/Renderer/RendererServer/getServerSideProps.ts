@@ -62,14 +62,14 @@ async function wrapperHandler<P extends PlainObject>(
  *    - 可以随意返回一个对象，会当作 props
  *    - 可以按规则返回会被 next 直接使用
  *    - 还可以什么都不返回，为了开发方便, 默认 返回 `props:{ empty:true }`
- *    - 可手动抛出 `AppServerError` 由 `ErrorHandler` 处理
+ *    - 可手动抛出 `ServerRendererError` 由 `ErrorHandler` 处理
  *
  * @param config
  * @returns
  */
 export default function getServerSideProps<P extends PlainObject>(
   config: BaseConfigType<HandlerType<P>> = {}
-) {
+): (context: GetServerSidePropsContext) => Promise<any> {
   const { catchError = appConfig.appEnv !== 'fork:test' } = config;
 
   return async function getServerSideProps(context: GetServerSidePropsContext) {

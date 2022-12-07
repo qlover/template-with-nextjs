@@ -5,7 +5,7 @@ import { IncomingMessage } from 'http';
 import getServerSideProps from './getServerSideProps';
 import getStaticPaths from './getStaticPaths';
 import getStaticProps from './getStaticProps';
-import AppServerError, {
+import ServerRendererError, {
   RedirectError,
   ServerError,
 } from './ServerRendererError';
@@ -74,7 +74,7 @@ export function plugRouterFilter(resolvedUrl: string, locale?: string) {
 export function ErrorHandler(e: Error) {
   serverLog('[RenderDispatch ErrorHandler]', e);
   // redirect
-  if (e instanceof AppServerError && e.redirect) {
+  if (e instanceof ServerRendererError && e.redirect) {
     return e.redirect();
   }
 
