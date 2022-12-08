@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const getRootPath = require('./util/getRootPath');
 const { isDir } = require('./util/isDir');
 const firstCaseUpper = require('./util/firstCaseUpper');
 const fillFileName = require('./util/fillFileName');
 const genSvgIconTpl = require('./tpl/genSvgIconTpl');
 const delDir = require('./util/delDir');
+const { svgAssetsPath, svgIconOutputPath } = require('./config/bin.config');
 
-const componentRoot = getRootPath('src/components/core/Icon/AssetsSvgIcon');
+const componentRoot = svgIconOutputPath;
 
 function createIconSvgFile(filename) {
   const fileName = filename.replace('.svg', '');
@@ -26,16 +26,14 @@ function createIconSvgFile(filename) {
 }
 
 (async function genSvgIconComponent(params) {
-  const assetsRoot = getRootPath('src/assets/svgIcon');
-
-  await isDir(assetsRoot);
+  await isDir(svgAssetsPath);
 
   if (fs.existsSync(componentRoot)) {
     delDir(componentRoot);
   }
   fs.mkdirSync(componentRoot);
 
-  const files = fs.readdirSync(assetsRoot);
+  const files = fs.readdirSync(svgAssetsPath);
 
   files.forEach((filename) => {
     try {
