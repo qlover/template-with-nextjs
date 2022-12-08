@@ -1,8 +1,4 @@
-const { join } = require('path');
-const {
-  imgIconAssetsPath,
-  imgIconAssetsSrcPath,
-} = require('../config/bin.config');
+const { imgIconAssetsSrcPath } = require('../config/bin.config');
 
 /**
  *
@@ -66,7 +62,7 @@ const rootStyle = `
   background-position: center;
 }`;
 
-const cssAssetPathRoot = '/src/assets/imgIcon';
+const cssAssetPathRoot = '../../../..' + imgIconAssetsSrcPath;
 
 // TODO: css 文件路径
 function genRule(filename, type) {
