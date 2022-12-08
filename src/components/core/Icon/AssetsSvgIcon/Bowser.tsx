@@ -1,4 +1,4 @@
-import Bowser from '@/assets/svg/bowser.svg';
+import Bowser from '@/assets/svgIcon/bowser.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';

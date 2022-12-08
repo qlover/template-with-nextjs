@@ -1,5 +1,5 @@
 function genSvgIconTpl(fileName, comName) {
-  return `import ${comName} from '@/assets/svg/${fileName}.svg';
+  return `import ${comName} from '@/assets/svgIcon/${fileName}.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';

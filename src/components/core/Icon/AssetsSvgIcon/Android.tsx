@@ -1,4 +1,4 @@
-import Android from '@/assets/svg/android.svg';
+import Android from '@/assets/svgIcon/android.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';

@@ -1,4 +1,4 @@
-import Ios from '@/assets/svg/ios.svg';
+import Ios from '@/assets/svgIcon/ios.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';

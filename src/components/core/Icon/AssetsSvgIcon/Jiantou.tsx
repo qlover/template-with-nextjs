@@ -1,4 +1,4 @@
-import Jiantou from '@/assets/svg/jiantou.svg';
+import Jiantou from '@/assets/svgIcon/jiantou.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';

@@ -1,4 +1,4 @@
-import Windows from '@/assets/svg/windows.svg';
+import Windows from '@/assets/svgIcon/windows.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';

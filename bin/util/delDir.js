@@ -1,13 +1,18 @@
 const fs = require('fs');
+const { join } = require('path');
 
-function emptyDir(path) {
+/**
+ * 删除目录
+ * @param {*} path
+ */
+function delDir(path) {
   let files = [];
   if (fs.existsSync(path)) {
     files = fs.readdirSync(path);
     files.forEach((file, index) => {
-      let curPath = path + '/' + file;
+      let curPath = join(path, file);
       if (fs.statSync(curPath).isDirectory()) {
-        emptyDir(curPath); //递归删除文件夹
+        delDir(curPath); //递归删除文件夹
       } else {
         fs.unlinkSync(curPath); //删除文件
       }
@@ -16,4 +21,4 @@ function emptyDir(path) {
   }
 }
 
-module.exports = emptyDir;
+module.exports = delDir;

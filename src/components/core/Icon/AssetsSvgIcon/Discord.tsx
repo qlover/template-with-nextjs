@@ -1,4 +1,4 @@
-import Discord from '@/assets/svg/discord.svg';
+import Discord from '@/assets/svgIcon/discord.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '..';
