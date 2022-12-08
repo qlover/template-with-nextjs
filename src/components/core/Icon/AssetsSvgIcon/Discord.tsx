@@ -1,7 +1,7 @@
 import Discord from '@/assets/svgIcon/discord.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
-import { IconSvgBaseProps } from '..';
+import { IconSvgBaseProps } from '.';
 
 const IconSvgDiscord = React.forwardRef<HTMLSpanElement, IconSvgBaseProps>(
   (props, ref) => <Icon {...props} ref={ref} component={Discord} />

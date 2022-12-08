@@ -1,9 +1,9 @@
 const fs = require('fs');
-const path = require('path');
+const { join } = require('path');
 const { isDir } = require('./util/isDir');
 const firstCaseUpper = require('./util/firstCaseUpper');
 const fillFileName = require('./util/fillFileName');
-const genSvgIconTpl = require('./tpl/genSvgIconTpl');
+const { genSvgIconTpl, genSvgIconIndexTpl } = require('./tpl/genSvgIconTpl');
 const delDir = require('./util/delDir');
 const { svgAssetsPath, svgIconOutputPath } = require('./config/bin.config');
 const { mkdirsSync } = require('./util/makdirs');
@@ -14,7 +14,7 @@ function createIconSvgFile(filename) {
   const fileName = filename.replace('.svg', '');
   const componentName = firstCaseUpper(fileName);
   const componentFileName = fillFileName(componentName, '.tsx');
-  const componentPath = path.join(componentRoot, componentFileName);
+  const componentPath = join(componentRoot, componentFileName);
 
   if (fs.existsSync(componentPath)) {
     console.log('[exists]', componentPath);
@@ -43,4 +43,8 @@ function createIconSvgFile(filename) {
       console.log(`genSvgComponent ${filename} Error`, e);
     }
   });
+
+  // 创建 index.tsx
+  // TODO: 导出文件
+  fs.writeFileSync(join(componentRoot, 'index.tsx'), genSvgIconIndexTpl());
 })();
