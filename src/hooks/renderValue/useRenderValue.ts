@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useAppProps } from '@/container/AppProps';
+import AppPropsContainer from '@/container/AppProps';
 import useCacheState from '@/hooks/useCacheState';
 import createRenderValue from '@/utils/createRenderValue';
 import { isPlainObject, isString } from 'lodash';
@@ -54,7 +54,7 @@ function parseRenderValue<RV>(props?: ConfigType) {
  * @returns
  */
 export default function useRenderValue<RV = any>(props?: ConfigType) {
-  const { getPageProps } = useAppProps();
+  const { getPageProps } = AppPropsContainer.useContainer();
   const { rvNS, dataSource } = props || {};
 
   const [renderValue, setRenderValue] = useCacheState(() => {

@@ -22,7 +22,7 @@ const config = {
   webpack(config) {
     // 增加 svg 加载
     config.module.rules.push({
-      test: /\.svg$/i,
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     });

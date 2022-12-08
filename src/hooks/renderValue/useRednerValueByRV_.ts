@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useAppProps } from '@/container/AppProps';
+import AppPropsContainer from '@/container/AppProps';
 import useCacheState from '@/hooks/useCacheState';
 import createRenderValue from '@/utils/createRenderValue';
 import { useEffect } from 'react';
@@ -25,7 +25,7 @@ type RVValueType = {};
  */
 export default function useRednerValueByRV_() {
   // const { pageProps } = useContainer(AppProps);
-  const { getPageProps } = useAppProps();
+  const { getPageProps } = AppPropsContainer.useContainer();
 
   const [innerState, setinnerState] = useCacheState(() => {
     const source = getPageProps().__namespaces._rvdata;

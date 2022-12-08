@@ -41,7 +41,13 @@ let appConfig = {
   lang: i18n.defaultLocale as LocalApp.Lang,
 
   timeFormat: { blogUpdateTime: 'y/m/d' },
+
   tokenHeaderKey: 'Authorization',
+
+  /**
+   * 字体图片引用地址, 创建组件由 @antd/icons 实现
+   */
+  iconFont: '//at.alicdn.com/t/c/font_3814331_cjle1aleofc.js',
 };
 
 if (isBrower()) {
