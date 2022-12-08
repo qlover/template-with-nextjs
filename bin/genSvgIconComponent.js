@@ -6,6 +6,7 @@ const fillFileName = require('./util/fillFileName');
 const genSvgIconTpl = require('./tpl/genSvgIconTpl');
 const delDir = require('./util/delDir');
 const { svgAssetsPath, svgIconOutputPath } = require('./config/bin.config');
+const { mkdirsSync } = require('./util/makdirs');
 
 const componentRoot = svgIconOutputPath;
 
@@ -31,7 +32,7 @@ function createIconSvgFile(filename) {
   if (fs.existsSync(componentRoot)) {
     delDir(componentRoot);
   }
-  fs.mkdirSync(componentRoot);
+  mkdirsSync(componentRoot);
 
   const files = fs.readdirSync(svgAssetsPath);
 
