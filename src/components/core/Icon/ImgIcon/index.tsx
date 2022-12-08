@@ -28,7 +28,7 @@ export default function ImgIcon({
       style={{ width, height, ...style }}
       {...domData.compoent(ImgIcon)}
       {...props}
-      className={classNames(css['ImgIcon'], 'ImgIcon-' + type, className)}
+      className={classNames(css['ImgIcon'], css['ImgIcon-' + type], className)}
     ></i>
   );
 }

@@ -45,7 +45,7 @@ export default function ImgIcon({
       style={{ width, height, ...style }}
       {...domData.compoent(ImgIcon)}
       {...props}
-      className={classNames(css['ImgIcon'], 'ImgIcon-' + type, className)}
+      className={classNames(css['ImgIcon'], css['ImgIcon-' + type], className)}
     ></i>
   );
 }
@@ -66,10 +66,13 @@ const rootStyle = `
   background-position: center;
 }`;
 
+const cssAssetPathRoot = '/src/assets/imgIcon';
+
+// TODO: css 文件路径
 function genRule(filename, type) {
   return `
 .ImgIcon-${type} {
-  background-image: url(${imgIconAssetsSrcPath + '/' + filename});
+  background-image: url('${cssAssetPathRoot + '/' + filename}');
 }
 `;
 }
