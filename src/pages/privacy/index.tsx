@@ -1,5 +1,5 @@
-import Iconfont from '@/components/core/Iconfont';
-import IconSvgAndroid from '@/components/core/IconSvg/Android';
+import IconSvgIos from '@/components/core/Icon/AssetsSvgIcon/Ios';
+import Iconfont from '@/components/core/Icon/Iconfont';
 import { RendererComponent } from '@/container/Renderer';
 import RendererServer from '@/container/Renderer/RendererServer';
 
@@ -7,7 +7,7 @@ export default RendererComponent(() => {
   return (
     <div className="text-4xl">
       <Iconfont type="icon-mac" />
-      <IconSvgAndroid />
+      <IconSvgIos />
     </div>
   );
 });
