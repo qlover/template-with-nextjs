@@ -1,5 +1,7 @@
+const { svgAssetsSrcPath } = require('../config/bin.config');
+
 function genSvgIconTpl(fileName, comName) {
-  return `import ${comName} from '@/assets/svgIcon/${fileName}.svg';
+  return `import ${comName} from '@${svgAssetsSrcPath}/${fileName}.svg';
 import Icon from '@ant-design/icons';
 import React from 'react';
 import { IconSvgBaseProps } from '.';
