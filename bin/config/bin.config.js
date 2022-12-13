@@ -4,12 +4,13 @@ const rootPath = join(__dirname, '../../');
 
 const svgAssetsSrcPath = '/assets/svgIcon';
 const imgIconAssetsSrcPath = '/assets/imgIcon';
-
+const componentRoot = join(rootPath, 'src/components');
 module.exports = {
   /**
    * 项目根路径
    */
   rootPath: rootPath,
+  componentRoot: componentRoot,
 
   svgAssetsSrcPath,
 
