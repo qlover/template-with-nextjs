@@ -11,6 +11,7 @@
     "analyze:browser": "set BUNDLE_ANALYZE=browser && next build"
   },
   "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.1",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@svgr/webpack": "^6.5.1",

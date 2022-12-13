@@ -12,6 +12,8 @@ module.exports = {
   rootPath: rootPath,
   componentRoot: componentRoot,
 
+  iconFontCssUrl: 'https://at.alicdn.com/t/c/font_2313575_jrmu3vunaj.css',
+
   svgAssetsSrcPath,
 
   /**

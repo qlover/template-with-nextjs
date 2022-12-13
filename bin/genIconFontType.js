@@ -1,7 +1,7 @@
 const { default: axios } = require('axios');
 const { writeFileSync } = require('fs');
 const { join } = require('path');
-const { rootPath } = require('./config/bin.config');
+const { rootPath, iconFontCssUrl } = require('./config/bin.config');
 const classNamesReg = /(\.?([a-zA-Z0-9-])+(:before))/g;
 
 function createIconFont(types) {
@@ -25,9 +25,7 @@ export default Iconfont;
 }
 
 (async function genIconFontType(params) {
-  const iconFontUrl = 'https://at.alicdn.com/t/c/font_2313575_jrmu3vunaj.css';
-
-  axios(iconFontUrl).then((cssText) => {
+  axios(iconFontCssUrl).then((cssText) => {
     const cssTextStr = cssText.data;
     if (typeof cssTextStr === 'string') {
       const iconTypes = cssTextStr
