@@ -3,7 +3,7 @@ import RendererContainer from './container';
 export { default as RendererComponent } from './Component';
 export { default as RendererLayout } from './Component/Layout';
 export { default as RendererContainer } from './container';
-// export { default as RendererServer } from './ServerRenderer';
+// export { default as NextjsRenderer } from './ServerRenderer';
 
 export const usePageContainer = RendererContainer.useContainer;
 
@@ -28,7 +28,7 @@ export const usePageContainer = RendererContainer.useContainer;
  *   RendererLayout,
  *   usePageContainer,
  * } from '@/container/Renderer';
- * import RendererServer from '@/container/Renderer/RendererServer';
+ * import NextjsRenderer from '@/container/Renderer/NextjsRenderer';
  *
  * export default RendererComponent<>(() => {
  *  return (

@@ -1,6 +1,6 @@
 import appConfig from '@/config/appConfig';
 import { isServer } from '@/config/nextEnv';
-import RenderDispatch from '../../container/Renderer/RendererServer';
+import RenderDispatch from '../../container/Renderer/NextjsRenderer';
 
 /**
  * 将本地语言转换成 cms 请求头识别语言

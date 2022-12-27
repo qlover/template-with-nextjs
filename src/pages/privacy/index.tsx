@@ -2,7 +2,7 @@ import IconSvgIos from '@/components/core/Icon/AssetsSvgIcon/Ios';
 import Iconfont from '@/components/core/Icon/Iconfont';
 import ImgIcon from '@/components/core/Icon/ImgIcon';
 import { RendererComponent } from '@/container/Renderer';
-import RendererServer from '@/container/Renderer/RendererServer';
+import NextjsRenderer from '@/container/Renderer/NextjsRenderer';
 
 export default RendererComponent(() => {
   return (
@@ -14,4 +14,4 @@ export default RendererComponent(() => {
   );
 });
 
-export const getStaticProps = RendererServer.ssg();
+export const getStaticProps = NextjsRenderer.ssg();

@@ -3,7 +3,7 @@ import {
   RendererLayout,
   usePageContainer,
 } from '@/container/Renderer';
-import RendererServer from '@/container/Renderer/RendererServer';
+import NextjsRenderer from '@/container/Renderer/NextjsRenderer';
 import { WindowIcon } from '@heroicons/react/24/outline';
 
 const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
@@ -25,7 +25,7 @@ const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {
   );
 });
 
-export const getStaticProps = RendererServer.ssg({
+export const getStaticProps = NextjsRenderer.ssg({
   async handler() {
     return {
       ssgTitle: 'ssgTitle',
