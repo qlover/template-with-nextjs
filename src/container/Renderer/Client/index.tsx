@@ -1,8 +1,8 @@
 import RendererContainer from './container';
 
 export { default as RendererComponent } from './Component';
-export { default as RendererLayout } from './Component/Layout';
 export { default as RendererContainer } from './container';
+export { default as RendererLayout } from './Layout';
 // export { default as NextjsRenderer } from './ServerRenderer';
 
 export const usePageContainer = RendererContainer.useContainer;

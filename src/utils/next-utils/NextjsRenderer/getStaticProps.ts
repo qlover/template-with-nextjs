@@ -2,10 +2,10 @@ import appConfig from '@/config/appConfig';
 import {
   GetStaticProps,
   GetStaticPropsContext,
-  GetStaticPropsResult,
+  GetStaticPropsResult
 } from 'next/types';
 import RenderDispatch, { BaseConfigType } from '.';
-import { prepareForSerializatoin } from '../../../utils/next-utils/prepareForSerializatoin';
+import { prepareForSerializatoin } from '../prepareForSerializatoin';
 import { RedirectError, ServerError } from './ServerRendererError';
 
 type StaticConfigType<P> = BaseConfigType<HandlerType<P>> & {

@@ -1,15 +1,15 @@
 import appConfig from '@/config/appConfig';
 import {
   GetServerSidePropsContext,
-  GetServerSidePropsResult,
+  GetServerSidePropsResult
 } from 'next/types';
 import RenderDispatch, {
   BaseConfigType,
   ErrorHandler,
-  plugRouterFilter,
+  plugRouterFilter
 } from '.';
-import { prepareForSerializatoin } from '../../../utils/next-utils/prepareForSerializatoin';
-import { parseQSForString } from '../../../utils/next-utils/wrapperContext';
+import { prepareForSerializatoin } from '../prepareForSerializatoin';
+import { parseQSForString } from '../wrapperContext';
 
 type HandlerType<Props> = (
   context: GetServerSidePropsContext

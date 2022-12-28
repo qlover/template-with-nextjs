@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import PageRootContainer, {
   isPageContainerProps,
   PageContainerProps,
-} from '../container';
+} from './container';
 
 export type BaesRendererProps = LocalApp.PageProps;
 

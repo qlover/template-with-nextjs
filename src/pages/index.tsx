@@ -2,8 +2,8 @@ import {
   RendererComponent,
   RendererLayout,
   usePageContainer,
-} from '@/container/Renderer';
-import NextjsRenderer from '@/container/Renderer/NextjsRenderer';
+} from '@/container/Renderer/Client';
+import { NextjsRenderer } from '@/container/Renderer/Server';
 import { WindowIcon } from '@heroicons/react/24/outline';
 
 const IndexPage = RendererComponent<{ ssgTitle: string }>(({ ssgTitle }) => {

@@ -1,6 +1,6 @@
 import CenteredWithBottomBorder from '@/components/example/TailWindHead';
+import useSetRef from '@/hooks/common/useSetRef';
 import useCacheState from '@/hooks/useCacheState';
-import useDomRef from '@/hooks/useDomRef';
 import classNames from 'classnames';
 import css from './index.module.less';
 
@@ -13,7 +13,7 @@ export type PageHeaderProps = {
  * @returns
  */
 function PageHeader({ wrapperClassName }: PageHeaderProps) {
-  const [headerRef, setRef] = useDomRef<HTMLHeadElement>();
+  const [headerRef, setRef] = useSetRef<HTMLHeadElement>();
   const [innerState, setInnerState] = useCacheState({
     openDrawer: false,
     drawerType: 'nav' as 'nav' | 'lang',
