@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import AppPropsContainer from '@/container/AppProps';
-import useCacheState from '@/hooks/useCacheState';
+import useCacheState from '@/hooks/common/useCacheState';
 import createRenderValue from '@/utils/createRenderValue';
 import { useEffect } from 'react';
 

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import useCacheState from '@/hooks/useCacheState';
+import useCacheState from '@/hooks/common/useCacheState';
 import { isSameNull } from 'maroonlis-utils';
 import { useCallback, useEffect, useRef } from 'react';
 

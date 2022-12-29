@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import useCacheState from '@/hooks/useCacheState';
+import useCacheState from '@/hooks/common/useCacheState';
 import { isString } from 'lodash';
 import Image, { ImageProps } from 'next/image';
 
